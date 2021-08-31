@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="post container-fluid">
+    <p><h2 style="margin-left:5%; color:Blue;">User Detail :</h2></p>
+    {% if query.name %}
+    <div class="post" style="margin-left:5%;">
+        <h4>Name:  {{ query.name }}</h4>
+        <h4>Email:  {{ query.email }}</h4>
+        <h4>Loan amount:  {{ query.loan_amount }} rs.</h4>
+        <h4>Tenure period:  {{ query.tenure_period }} months.</h4>
+        <h4>Rate of interest:  {{ query.rate_of_interest }} %.</h4>
+        <h4>Interest amount:  {{ query.interest_amount }} rs.</h4>
+        <h4>Allot limit:  1,00,000 rs.</h4>
+        <h4 style="color:red">Due date:  {{ query.due_date }}</h4>
+        <h4 style="color:green">Amount to be paid:  {{ query.amount_to_be_paid }} rs.</h4>
+        <br>
+        <h3>Calculation: </h3>
+        <h4>Formula: loan_amount * ((1 + monthly_rate) ^ tenure_period</h4>
+        <h4>Monthly rate = ({{query.rate_of_interest}}% / 12) / 100 = {{query.final_rate}}</h4>
+        <h4>Compound Interest = {{query.loan_amount}} * ((1 + {{query.final_rate}}%) ^ {{ query.tenure_period }}) = {{ query.amount_to_be_paid }}</h4>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

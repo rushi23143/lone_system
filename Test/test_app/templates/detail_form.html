@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail form</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<h4>Alloted Limit - 1,00,000</h4>
+
+ {% for message in messages %}
+            <h6 style="text-align: center; font-size: 18px;"><mark style="color: tomato;">{{ message }}</mark></h6>
+{% endfor %}
+
+<form method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <label>Date: </label>
+    <input type="date" name="date">
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
+</body>
+</html>

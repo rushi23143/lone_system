@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+    {% for message in messages %}
+            <h6 style="text-align: center; font-size: 18px;"><mark style="color: tomato;">{{ message }}</mark></h6>
+    {% endfor %}
+<form class="container-fluid" method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+    <p>Already Registered? <a style="color: blue;" href="{% url 'login' %}"> Login</a></p>
+    <p>Internal Team Member? <a style="color: blue;" href="{% url 'team_login' %}"> Login</a></p>
+</form>
+</div>
+</body>
+</html>
